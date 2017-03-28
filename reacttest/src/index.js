@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import App from './App';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import MyAwesomeReactComponent from './MyAwesomeReactComponent';
+import Hello from './Hello';
+import Header from './Header';
 import Search from './Search';
 import './index.css';
 
@@ -14,6 +14,7 @@ import './index.css';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
+//change la balise title
 document.title = "Eusko Aurkitegia";
 
 
@@ -25,12 +26,12 @@ const Appi = () => (
       <Grid fluid>
         <Row>
           <Col xs={12}>
-            <MyAwesomeReactComponent />
+            <Header />
           </Col>
         </Row>
         <Row center="xs">
-          <Col xs={6} md={5}>
-            <App />
+          <Col xs={12} sm={6} md={4}>
+            <Hello />
             <Search />
           </Col>
         </Row>
