@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
 import App from './App';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MyAwesomeReactComponent from './MyAwesomeReactComponent';
@@ -14,14 +16,25 @@ injectTapEventPlugin();
 
 document.title = "Eusko Aurkitegia";
 
+
 // il faut tout mettre dans <MuiThemeProvider> sinon ça ne fonctionne pas
 // si il y a plusieurs composant, il faut les mettres dans un <div>...         
 const Appi = () => (
   <MuiThemeProvider>
-    <div>
-    <MyAwesomeReactComponent />
-    <App />
-    <Search />
+    <div >
+      <Grid fluid>
+        <Row>
+          <Col xs={12}>
+            <MyAwesomeReactComponent />
+          </Col>
+        </Row>
+        <Row center="xs">
+          <Col xs={6} md={5}>
+            <App />
+            <Search />
+          </Col>
+        </Row>
+      </Grid>
     </div>
   </MuiThemeProvider>
 );
