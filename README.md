@@ -20,3 +20,8 @@ npm install react-tap-event-plugin
 
 Tutoriels de base pour REACT et create-react-app
 https://medium.com/@diamondgfx/learning-react-with-create-react-app-part-1-a12e1833fdc
+
+
+Installer petit système de grille pour la mise en page (https://github.com/roylee0704/react-flexbox-grid)
+npm install --save react-flexbox-grid
+Doc : http://roylee0704.github.io/react-flexbox-grid/
