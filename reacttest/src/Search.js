@@ -4,6 +4,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
+import ChipInput from 'material-ui-chip-input'
 
 
 const style = {
@@ -74,8 +75,8 @@ export default class AutoCompleteExampleSimple extends Component {
     })
     .then( (json) => {
         var villes = [];
-        var listItems = json.map(function(item,i) {
-            villes[i] = item.town;
+        json.map(function(item,i) {
+            villes[i] = item.town +' ('+item.zip+')';
         });
         
         this.setState({
@@ -88,6 +89,9 @@ export default class AutoCompleteExampleSimple extends Component {
     });
   }
   
+  handleChange = (value) => {
+      return true;
+  }
   
   render() {
     return (
@@ -117,10 +121,26 @@ export default class AutoCompleteExampleSimple extends Component {
             hintText="Donibane garazi 64220"
             dataSource={this.state.dataVille}
             onUpdateInput={this.chercherVilles}
+            filter={AutoComplete.fuzzyFilter}
             style={style}
             floatingLabelText="Ville (CP)"
             underlineShow={false} 
             fullWidth={true}
+        />
+        <Divider />
+        <ChipInput
+            id="champville"
+            defaultValue={[]}
+            onChange={(chips) => this.handleChange(chips)}
+            openOnFocus
+            dataSource={this.state.dataVille}
+            onUpdateInput={this.chercherVilles}
+            hintText="Donibane garazi 64220"
+            style={style}
+            floatingLabelText="Ville (CP)"
+            underlineShow={false} 
+            fullWidth={true}
+            fullWidthInput={true}
         />
         
         <RaisedButton label="Rechercher" primary={true} style={stylebtnrecherche} />
