@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr-fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.12/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-with-addons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.12/react/mui-react.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.5.2/redux.js"></script>
+
+    <!-- Browser JSX compiler (for development only) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.min.js"></script>
+  </head>
+<body>
+    <div id="react-root"></div>
+    <script id="react-app" type="text/template">
+        const App = ({name}) => {
+            return <h1>Welcome to Redux, {name}</h1>;
+        };
+
+        ReactDOM.render(<App name="World" />, document.getElementById("react-root"));
+    </script>
+    <script>
+        eval(Babel.transform(document.getElementById("react-app").innerHTML, {presets: ['es2015', 'react']}).code);
+    </script> 
+    
+    <div id="example"></div>
+    <script type="text/babel">
+      let Appbar = mui.react.Appbar,
+          Button = mui.react.Button,
+          Container = mui.react.Container;
+
+      class Example extends React.Component {
+        render() {
+          return (
+            <div>
+              <Appbar></Appbar>
+              <Container>
+                <Button color="primary">button</Button>
+              </Container>
+            </div>
+          );
+        }
+      }
+          
+      ReactDOM.render(<Example />, document.getElementById('example'));
+    </script>
+</body>
+</html>
