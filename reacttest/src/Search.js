@@ -62,7 +62,7 @@ export default class AutoCompleteExampleSimple extends Component {
   }; 
   
   chercherVilles = (value) => {
-    fetch("https://api.integration.eusko.meta-it.fr/towns/", { 
+    fetch("https://api.integration.eusko.meta-it.fr/towns/?zipcode=64220", { 
       method: 'GET',
       headers: {
           'Content-Type': 'application/json',
@@ -73,10 +73,15 @@ export default class AutoCompleteExampleSimple extends Component {
         return response.json() 
     })
     .then( (json) => {
-        //sauver le token dans le composant
+        var villes = [];
+        var listItems = json.map(function(item,i) {
+            villes[i] = item.town;
+        });
+        
         this.setState({
-           dataVille: json
-        })
+           dataVille: villes
+        });
+        
         console.log('parsed json', json)
     }).then(function(body) {
         console.log(body);
