@@ -25,3 +25,6 @@ https://medium.com/@diamondgfx/learning-react-with-create-react-app-part-1-a12e1
 Installer petit système de grille pour la mise en page (https://github.com/roylee0704/react-flexbox-grid)
 npm install --save react-flexbox-grid
 Doc : http://roylee0704.github.io/react-flexbox-grid/
+
+TODO essayer ce champ pour les villes:
+https://github.com/prakhar1989/react-tags

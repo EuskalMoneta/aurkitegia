@@ -123,6 +123,7 @@ export default class AutoCompleteExampleSimple extends Component {
             onUpdateInput={this.chercherVilles}
             filter={AutoComplete.fuzzyFilter}
             style={style}
+            listStyle={{ maxHeight: 150, overflow: 'auto' }}
             floatingLabelText="Ville (CP)"
             underlineShow={false} 
             fullWidth={true}
@@ -137,6 +138,7 @@ export default class AutoCompleteExampleSimple extends Component {
             onUpdateInput={this.chercherVilles}
             hintText="Donibane garazi 64220"
             style={style}
+            listStyle={{ maxHeight: 150, overflow: 'auto' }}
             floatingLabelText="Ville (CP)"
             underlineShow={false} 
             fullWidth={true}
