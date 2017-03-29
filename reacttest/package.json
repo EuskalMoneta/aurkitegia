@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "material-ui": "",
     "material-ui-chip-input": "^0.13.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-flexbox-grid": "^1.0.2",
+    "react-select": "^1.0.0-rc.3",
     "react-tag-input": "^4.6.2",
     "react-tap-event-plugin": ""
   },

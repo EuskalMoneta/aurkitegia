@@ -4,8 +4,11 @@ import AutoComplete from 'material-ui/AutoComplete';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
-import ChipInput from 'material-ui-chip-input'
-
+import ChipInput from 'material-ui-chip-input';
+import Select from 'react-select';
+// Be sure to include styles at some point, probably during your bootstrapping
+import 'react-select/dist/react-select.css';
+import RechercheVilles from './components/RechercheVilles';
 
 const style = {
   marginLeft: 20,
@@ -13,6 +16,8 @@ const style = {
 const stylebtnrecherche= {
   marginBottom: 10,
 };
+
+const TOKEN = "";
 
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
@@ -24,6 +29,7 @@ export default class AutoCompleteExampleSimple extends Component {
     datatoken: null,
     dataSource: [],
     dataVille: [],
+    valueVille: [],
   };
   
   componentDidMount() {
@@ -89,6 +95,7 @@ export default class AutoCompleteExampleSimple extends Component {
     });
   }
   
+  //fonction pour les chips
   handleChange = (value) => {
       return true;
   }
@@ -144,6 +151,10 @@ export default class AutoCompleteExampleSimple extends Component {
             fullWidth={true}
             fullWidthInput={true}
         />
+        <RechercheVilles  />
+        
+        
+        
         
         <RaisedButton label="Rechercher" primary={true} style={stylebtnrecherche} />
         </Paper>

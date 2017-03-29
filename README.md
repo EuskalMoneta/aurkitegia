@@ -26,5 +26,6 @@ Installer petit système de grille pour la mise en page (https://github.com/royl
 npm install --save react-flexbox-grid
 Doc : http://roylee0704.github.io/react-flexbox-grid/
 
+Essai des différents champs autocomplete : http://jedwatson.github.io/react-select/
 TODO essayer ce champ pour les villes:
 https://github.com/prakhar1989/react-tags
