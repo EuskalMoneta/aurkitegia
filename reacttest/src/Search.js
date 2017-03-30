@@ -10,6 +10,9 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import RechercheVilles from './components/RechercheVilles';
 
+import ActionSearch from 'material-ui/svg-icons/action/search';
+
+
 const style = {
   marginLeft: 20,
 };
@@ -17,7 +20,6 @@ const stylebtnrecherche= {
   marginBottom: 10,
 };
 
-const TOKEN = "";
 
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
@@ -154,9 +156,7 @@ export default class AutoCompleteExampleSimple extends Component {
         <RechercheVilles  />
         
         
-        
-        
-        <RaisedButton label="Rechercher" primary={true} style={stylebtnrecherche} />
+        <RaisedButton label=" Rechercher" primary={true} style={stylebtnrecherche} icon={<ActionSearch />} />
         </Paper>
       </div>
     );

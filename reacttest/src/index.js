@@ -9,6 +9,9 @@ import Header from './Header';
 import Search from './Search';
 import './index.css';
 
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ActionSearch from 'material-ui/svg-icons/action/search';
+
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -36,6 +39,9 @@ const Appi = () => (
           </Col>
         </Row>
       </Grid>
+      <FloatingActionButton >
+        <ActionSearch />
+      </FloatingActionButton>
     </div>
   </MuiThemeProvider>
 );
