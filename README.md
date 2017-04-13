@@ -29,3 +29,15 @@ Doc : http://roylee0704.github.io/react-flexbox-grid/
 Essai des différents champs autocomplete : http://jedwatson.github.io/react-select/
 TODO essayer ce champ pour les villes:
 https://github.com/prakhar1989/react-tags
+
+
+DEMARRAGE POUR TEST
+Prérequis : Node >= 6 et npm>=3
+
+cd reacttest
+# intaller toutes les librairies nécessaires
+npm install
+# démarrer l'application
+npm start
+
+Cela ouvre une page navigateur, et affiche les erreurs en direct dans le terminal
