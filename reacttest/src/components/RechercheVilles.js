@@ -12,7 +12,7 @@ const RechercheVilles = React.createClass({
 		return {
 			backspaceRemoves: true,
 			multi: true,
-                        datatoken: 'fad83a6cff075748070fef5d2226b0110796d58c',
+                        datatoken: '424c2dbb2b35b8090c5c31d3f03620f05b7fdcc5',
                         dataVille: [],
                         valueVille: [],
 		};
