@@ -34,7 +34,7 @@ const RechercheVilles = React.createClass({
 			return Promise.resolve({ options: [] });
 		}
                 
-              return fetch("https://api.integration.eusko.meta-it.fr/towns/?zipcode=64120", { 
+              return fetch("https://api.integration.eusko.meta-it.fr/villes-prestataires/?langue=fr", { 
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,11 +43,12 @@ const RechercheVilles = React.createClass({
               })
               .then( (response) => response.json() )
               .then( (json) => {
+                  //console.log('res brute ', json)
                   var villes = [];
                   json.map(function(item) {
                       var obj = {};
                       obj.value = item.id;
-                      obj.label = item.town +' ('+item.zip+')';
+                      obj.label = item.nom +' ('+item.code_postal+')';
                       villes.push(obj);
                   });
                   console.log('parsed villes 2', villes)
