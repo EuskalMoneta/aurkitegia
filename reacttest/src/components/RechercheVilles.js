@@ -2,6 +2,8 @@ import React from 'react';
 import Select from 'react-select';
 import fetch from 'isomorphic-fetch';
 
+import {getToken} from '../getToken';
+
 
 const RechercheVilles = React.createClass({
         
@@ -12,11 +14,14 @@ const RechercheVilles = React.createClass({
 		return {
 			backspaceRemoves: true,
 			multi: true,
-                        datatoken: '424c2dbb2b35b8090c5c31d3f03620f05b7fdcc5',
                         dataVille: [],
                         valueVille: [],
 		};
 	},
+        
+        componentDidMount() { 
+            
+        },
         
 	onChange (value) {
 		this.setState({
@@ -28,24 +33,18 @@ const RechercheVilles = React.createClass({
 		if (!input) {
 			return Promise.resolve({ options: [] });
 		}
-
-		/*return fetch(`https://api.github.com/search/users?q=${input}`)
-		.then((response) => response.json())
-		.then((json) => {
-                    console.log('cest commenT?', json.items);
-			return { options: json.items };
-		});*/
+                
               return fetch("https://api.integration.eusko.meta-it.fr/towns/?zipcode=64120", { 
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Token '+this.state.datatoken
+                    'Authorization': 'Token '+getToken()
                 },
               })
               .then( (response) => response.json() )
               .then( (json) => {
                   var villes = [];
-                  json.map(function(item,i) {
+                  json.map(function(item) {
                       var obj = {};
                       obj.value = item.id;
                       obj.label = item.town +' ('+item.zip+')';
@@ -63,6 +62,10 @@ const RechercheVilles = React.createClass({
 		return (
 			<div className="section">
 				<Select.Async 
+                                    searchPromptText="Tapez pour rechercher"
+                                    loadingPlaceholder="Chargement"
+                                    placeholder="Villes et villages"
+                                    floatingLabelText="Lieux"
                                     className="newselect"
                                     multi={true} 
                                     value={this.state.value} 
