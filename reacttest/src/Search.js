@@ -1,20 +1,18 @@
 import React, {Component} from 'react';
 import Paper from 'material-ui/Paper';
-import AutoComplete from 'material-ui/AutoComplete';
 import TextField from 'material-ui/TextField';
-import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 // Be sure to include styles at some point, probably during your bootstrapping
 import 'react-select/dist/react-select.css';
+import RechercheCategories from './components/RechercheCategories';
 import RechercheVilles from './components/RechercheVilles';
+
 
 import ActionSearch from 'material-ui/svg-icons/action/search';
 
 import {getToken} from './getToken';
 
-const style = {
-  marginLeft: 20,
-};
+
 const stylebtnrecherche= {
   marginBottom: 10,
 };
@@ -31,51 +29,28 @@ export default class AutoCompleteExampleSimple extends Component {
       getToken();
   }
   
-  //les propriétés du composant
-  state = {
-    datatoken: null,
-    dataSource: [],
-    dataVille: [],
-    valueVille: [],
-  };
-  
-  handleUpdateInput = (value) => {
-    this.setState({
-      dataSource: [
-        value,
-        value + value,
-        value + value + value,
-      ],
-    });
-  }; 
-  
   
   render() {
     return (
       <div>
-        <Paper zDepth={2} >
-        <TextField
-            floatingLabelText="Mot clés"
-            hintText="Journal"
-            id="motcles" 
-            style={style}
-            underlineShow={false} 
-            fullWidth={true}
-        />
-        <Divider />
-        <AutoComplete
-            hintText="Boulangerie, bar ..."
-            dataSource={this.state.dataSource}
-            onUpdateInput={this.handleUpdateInput}
-            floatingLabelText="Catégorie"
-            style={style}
-            underlineShow={false} 
-            fullWidth={true}
-        />
-        <RechercheVilles  />
+        <Paper zDepth={2} className="cont_search">
         
-        
-        <RaisedButton label=" Rechercher" primary={true} style={stylebtnrecherche} icon={<ActionSearch />} />
+        <h3>Ou utiliser mes Euskos</h3>
+
+        <div className="cont_formsearch">
+            <TextField
+                floatingLabelText="Mots clés"
+                id="motcles" 
+                className="motcles"
+                fullWidth={true}
+            />
+
+            <RechercheCategories />
+
+            <RechercheVilles  />
+
+            <RaisedButton label=" Rechercher" primary={true} style={stylebtnrecherche} icon={<ActionSearch />} />
+        </div>
         </Paper>
       </div>
     );

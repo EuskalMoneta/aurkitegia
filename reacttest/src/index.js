@@ -4,7 +4,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import Hello from './Hello';
 import Header from './Header';
 import Search from './Search';
 import './index.css';
@@ -34,7 +33,6 @@ const Appi = () => (
         </Row>
         <Row center="xs">
           <Col xs={12} sm={6} md={4}>
-            <Hello />
             <Search />
           </Col>
         </Row>

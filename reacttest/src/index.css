@@ -3,3 +3,22 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.newselect{
+    margin-bottom: 10px;
+}
+.motcles label, .motcles input{
+    margin-left: 10px;
+}
+.Select-option{
+    text-align: left;
+}
+.cont_search{
+    margin-top: 10px;
+}
+.cont_search h3{
+    display:inline-block;
+    margin-bottom: 0px;
+}
+.cont_formsearch{
+    padding: 0 20px 20px 20px;
+}

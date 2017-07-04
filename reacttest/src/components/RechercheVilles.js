@@ -14,13 +14,16 @@ const RechercheVilles = React.createClass({
 		return {
 			backspaceRemoves: true,
 			multi: true,
-                        dataVille: [],
-                        valueVille: [],
+                        options: [],
 		};
 	},
         
-        componentDidMount() { 
-            
+        componentDidMount() {
+            //this.setState('options', this.getVilles)
+            this.setState((prevState) => {
+                return {options:  this.getVilles};
+            });
+
         },
         
 	onChange (value) {
@@ -30,9 +33,9 @@ const RechercheVilles = React.createClass({
 	},
 	
 	getVilles (input) {
-		if (!input) {
-			return Promise.resolve({ options: [] });
-		}
+		//if (!input) {
+		//	return Promise.resolve({ options: [] });
+		//}
                 
               return fetch("https://api.integration.eusko.meta-it.fr/villes-prestataires/?langue=fr", { 
                 method: 'GET',
@@ -68,12 +71,13 @@ const RechercheVilles = React.createClass({
                                     placeholder="Villes et villages"
                                     floatingLabelText="Lieux"
                                     className="newselect"
-                                    multi={true} 
+                                    multi={this.state.multi} 
                                     value={this.state.value} 
                                     onChange={this.onChange} 
                                     valueKey="value" 
                                     labelKey="label" 
                                     loadOptions={this.getVilles} 
+                                    menuContainerStyle={{ zIndex: 4 }} 
                                      />
 				
 			</div>
