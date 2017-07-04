@@ -4,12 +4,13 @@ import fetch from 'isomorphic-fetch';
 
 import {getToken} from '../getToken';
 
+var createReactClass = require('create-react-class');
 
-const RechercheCategories = React.createClass({
+const RechercheCategories = createReactClass({
         
-	propTypes: {
-		label: React.PropTypes.string,
-	},
+	//propTypes: {
+	//	label: React.PropTypes.string,
+	//},
 	getInitialState () {
 		return {
 			backspaceRemoves: true,
@@ -47,10 +48,10 @@ const RechercheCategories = React.createClass({
               .then( (json) => {
                   console.log('res brute ', json)
                   var categ = [];
-                  json.map(function(item) {
+                  Object.keys(json).forEach(function(item) {
                       var obj = {};
-                      obj.value = item.id;
-                      obj.label = item.nom;
+                      obj.value = json[item].id;
+                      obj.label = json[item].nom;
                       categ.push(obj);
                   });
                   console.log('parsed categories', categ)
