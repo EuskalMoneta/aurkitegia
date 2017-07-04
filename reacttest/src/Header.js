@@ -1,23 +1,33 @@
 import React from 'react';
 
+//import { browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
-import './App.css';
 
-/*const App = () => {
-  return (<div className="App">Hello World!</div>);
-};
+import history from './history';
 
-export default App;*/
+var createReactClass = require('create-react-class');
 
-/**
- * A simple example of `AppBar` with an icon on the right.
- * By default, the left icon is a navigation-menu.
- */
-const MyAwesomeReactComponent = () => (
-  <AppBar
-    title="Title"
-    iconClassNameRight="muidocs-icon-navigation-expand-more"
-  />
-);
+const Header = createReactClass({
+        
+    _handleClick(e) {
+        
+        //this.context.router.push('/')
+        //this.context.router.push('/');
+        //browserHistory.push('/');
+        history.push('/');
+        //this.refs.leftNav.toggle();
+    },
+    
+    render() {
+        return (
+            <AppBar
+                title="Annuaire Eusko"
+                onTitleTouchTap={this._handleClick}
+                iconClassNameRight="muidocs-icon-navigation-expand-more"
+            />
+        );
+    }
+});
 
-export default MyAwesomeReactComponent;
+module.exports = Header;
+//export default Header;

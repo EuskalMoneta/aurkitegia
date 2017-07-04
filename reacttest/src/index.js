@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
+import history from './history';
+
 import Header from './Header';
 import Search from './Search';
+import Listeresultat from './Listeresultat';
+import Prestataire from './Prestataire';
 import './index.css';
 
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ActionSearch from 'material-ui/svg-icons/action/search';
+
 
 
 // Needed for onTouchTap
@@ -18,6 +22,19 @@ injectTapEventPlugin();
 
 //change la balise title
 document.title = "Eusko Aurkitegia";
+
+
+//Definir les routes possibles
+
+const Main = () => (
+  <main>
+    <Switch>
+      <Route exact path='/' component={Search}/>
+      <Route path='/resultat' component={Listeresultat}/>
+      <Route path='/prestataire/:number' component={Prestataire}/>
+    </Switch>
+  </main>
+)
 
 
 // il faut tout mettre dans <MuiThemeProvider> sinon ça ne fonctionne pas
@@ -33,19 +50,22 @@ const Appi = () => (
         </Row>
         <Row center="xs">
           <Col xs={12} sm={6} md={4}>
-            <Search />
+          
+            <Main />
+            
           </Col>
         </Row>
       </Grid>
-      <FloatingActionButton >
-        <ActionSearch />
-      </FloatingActionButton>
     </div>
   </MuiThemeProvider>
 );
 
 //cela va se placer dans la div id="root"
-ReactDOM.render(
-  <Appi />,
+//BrowserRouter sert à mettre en place le système de routes
+ReactDOM.render((
+  <Router history={history}>
+    <Appi />
+  </Router>
+  ),
   document.getElementById('root')
 );

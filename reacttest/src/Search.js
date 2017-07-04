@@ -21,7 +21,7 @@ const stylebtnrecherche= {
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
  */
-export default class AutoCompleteExampleSimple extends Component {
+export default class Search extends Component {
   
   constructor(props){
       super(props);
@@ -35,7 +35,7 @@ export default class AutoCompleteExampleSimple extends Component {
       <div>
         <Paper zDepth={2} className="cont_search">
         
-        <h3>Ou utiliser mes Euskos</h3>
+        <h3>Où utiliser mes Eusko</h3>
 
         <div className="cont_formsearch">
             <TextField
