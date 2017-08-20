@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+
+  aurkitegia:
+    build: .
+    container_name: aurkitegia
+    volumes:
+      - ./reacttest:/data
+      - /data/node_modules
+    ports:
+       - 8004:3000
